@@ -132,7 +132,7 @@ class DatasetKmers(Dataset): # asssuming train data
 
 
 def collate_fn(data):
-    # Length of longest molecule in batch 
+    # Length of longest peptide in batch 
     max_size = max([x.shape[-1] for x in data])
     return torch.vstack(
         # Pad with stop token

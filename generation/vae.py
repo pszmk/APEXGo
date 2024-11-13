@@ -294,7 +294,7 @@ class InfoTransformerVAE(pl.LightningModule):
             n, 1, device=self.device
         ).long()  # Start token is 0, stop token is 1
         random_gumbels = torch.zeros(n, 0, self.vocab_size, device=self.device)
-        while True:  # Loop until every molecule hits a stop token
+        while True:  # Loop until every peptide hits a stop token
             tgt = self.decoder_token_embedding(tokens)
             tgt = self.decoder_position_encoding(tgt)
             tgt_mask = nn.Transformer.generate_square_subsequent_mask(
@@ -312,7 +312,7 @@ class InfoTransformerVAE(pl.LightningModule):
             )
             random_gumbels = torch.cat([random_gumbels, randoms], dim=1)
 
-            # 1 is the stop token. Check if all molecules have a stop token in them
+            # 1 is the stop token. Check if all peptides have a stop token in them
             if (
                 torch.all((tokens == 1).sum(dim=-1) > 0).item()
                 or tokens.shape[-1] > self.max_string_length
