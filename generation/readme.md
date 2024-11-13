@@ -1,0 +1,1 @@
+Training data for the APEXGo paper can be downloaded [from here](https://drive.google.com/file/d/1WZyR-UZ78jktdO-w2yeKEVT-Bgfe9QRo/view?usp=sharing). To train the model, place the downloaded csv into ```APEXGo/generation/data``` and run ```bash train.sh```
