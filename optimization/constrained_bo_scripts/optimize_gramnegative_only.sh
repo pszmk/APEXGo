@@ -7,7 +7,7 @@ python apex_oracle_constrained_diverse_optimization.py \
     --constraint_function_ids [similarity] \
     --constraint_thresholds [0.75] \
     --constraint_types [0] \
-    --wandb_entity yimengz \
+    --wandb_entity YOUR_WANDB_ENTITY \
     --num_initialization_points 10000 \
     --dim 256 \
     --max_string_length 30 \
