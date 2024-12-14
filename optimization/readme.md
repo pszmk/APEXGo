@@ -2,8 +2,6 @@ A Docker image with the requirements is provided at ```yimengzeng/apexgo:v1```, 
 ```shell
 docker run -it -v ~/APEXGo/optimization/:/workspace/ --gpus 'device=0' yimengzeng/apexgo:v1
 ```
-then navigate to the ```constrained_bo_scripts``` folder and run ```bash optimize_gramnegative_only.sh``` for an example of optimizing template 0 for gramnegative bacteria only, with a similarity of at least 75% to the template, and producing 20 different optimized peptides at the end.
-
 
 For a local setup using conda, run the following:
 ```shell
@@ -14,3 +12,9 @@ pip install tqdm==4.65.0 wandb==0.18.6 botorch==0.12.0 selfies==2.1.2 guacamol==
 ```
 
 This is tested with a NVIDIA RTX A6000 with driver version 535.86.10 and CUDA driver version 12.2, installation should take no more than 5~10 minutes with the correct setup.
+
+
+## Demo/Paper result reproduction
+Navigate to the ```constrained_bo_scripts``` folder and run ```bash optimize_gramnegative_only.sh``` for an example of optimizing template 0 for gramnegative bacteria only, with a similarity of at least 75% to the template, and producing 20 different optimized peptides at the end. Set the constraint_types argument from 0~9 to run optimization for each of the 10 templates in the paper.
+
+You should replace YOUR_WANDB_ENTITY with your wandb user id (free to use), the logs will be automatically uploaded to wandb and also saved locally in ```APEXGo/optimization/constrained_bo_scripts/optimization_all_collected_data```. The final diverse set of peptides produced can be found in the summary metrics of wandb logs as diverse_set_X1 ~ X20 and the corresponding APEX oracle scores are diverse_set_Y1 ~ Y20.
