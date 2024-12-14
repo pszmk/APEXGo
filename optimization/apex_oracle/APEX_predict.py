@@ -4,7 +4,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 import glob
 import sys
-sys.path.append("/workspace/apex_oracle/")
+import os
+file_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(f"{file_dir}")
 from APEX_models import AMP_model
 from utils import *
 
@@ -30,7 +32,8 @@ word2idx, idx2word = make_vocab()  # make amino acid vocabulary
 
 # Load pretrained APEX models (8 in total)
 APEX_models = []
-for a_model in glob.glob("/workspace/apex_oracle/APEX_pathogen_models/APEX_*"):
+file_dir = os.path.dirname(os.path.abspath(__file__))
+for a_model in glob.glob(f"{file_dir}/APEX_pathogen_models/APEX_*"):
     model = torch.load(a_model)
     model.eval()
     APEX_models.append(model)

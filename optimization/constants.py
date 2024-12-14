@@ -1,3 +1,4 @@
+import os
 """ Constants used by optimization routine """
 
 REFERENCE_SEQUENCE = [
@@ -13,7 +14,8 @@ REFERENCE_SEQUENCE = [
     "HWITINTIKLSISLKI",
 ]
 
-PATH_TO_VAE_STATE_DICT = "/workspace/uniref_vae/saved_models/dim128_k1_kl0001_eff256_dff256_pious-sea-2_model_state_epoch_118.pkl"
+file_dir = os.path.dirname(os.path.abspath(__file__))
+PATH_TO_VAE_STATE_DICT = f"{file_dir}/uniref_vae/saved_models/dim128_k1_kl0001_eff256_dff256_pious-sea-2_model_state_epoch_118.pkl"
 ENCODER_DIM = 256
 DECODER_DIM = 256
 KL_FACTOR = 0.0001
