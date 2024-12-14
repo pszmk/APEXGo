@@ -14,7 +14,7 @@ def start_wandb(args_dict):
     import wandb
 
     tracker = wandb.init(
-        entity=args_dict.wandb_entity, project="APEXGo_VAE", config=args_dict
+        entity=args_dict["wandb_entity"], project="APEXGo_VAE", config=args_dict
     )
     print("running", wandb.run.name)
     return tracker

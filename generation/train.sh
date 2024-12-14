@@ -8,4 +8,5 @@ python train_vae.py \
     --encoder_dim_feedforward 256 \
     --decoder_dim_feedforward 256 \
     --encoder_num_layers 6 \
-    --decoder_num_layers 6
+    --decoder_num_layers 6 \
+    --wandb_entity YOUR_WANDB_ENTITY
