@@ -33,7 +33,7 @@ class Optimize(object):
         seed: Random seed to be set. If None, no particular random seed is set
         track_with_wandb: if True, run progress will be tracked using Weights and Biases API
         wandb_entity: Username for your wandb account (valid username necessary iff track_with_wandb is True)
-        wandb_project_name: Name of wandb project where results will be logged (if no name is specified, default project name will be f"optimimze-{self.task_id}")
+        wandb_project_name: Name of wandb project where results will be logged (if no name is specified, default project name will be f"APEXGo-{self.task_id}")
         minimize: If True we want to minimize the objective, otherwise we assume we want to maximize the objective
         max_n_oracle_calls: Max number of oracle calls allowed (budget). Optimization run terminates when this budget is exceeded
         learning_rte: Learning rate for model updates
@@ -92,7 +92,7 @@ class Optimize(object):
         if wandb_project_name: # if project name specified
             self.wandb_project_name = wandb_project_name
         else: # otherwise use defualt
-            self.wandb_project_name = f"ROBOT-{self.task_id}"
+            self.wandb_project_name = f"APEXGo-{self.task_id}"
         if not WANDB_IMPORTED_SUCCESSFULLY:
             assert not self.track_with_wandb, "Failed to import wandb, to track with wandb, try pip install wandb"
         if self.track_with_wandb:
