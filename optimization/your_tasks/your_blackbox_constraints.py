@@ -127,10 +127,8 @@ class APEXSimilarityConstraint(ConstraintFunction):
         threshold_value,
         threshold_type, # is the threshold a min allowed or max allowed value ?
     ):
-        
-        assert threshold_type in range(0, 10)
-
-        self.refs = [REFERENCE_SEQUENCE[threshold_type]]
+        # setting the reference sequence to use for similarity constraint
+        self.refs = threshold_type
 
         threshold_type = "min"
 

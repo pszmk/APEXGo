@@ -6,7 +6,7 @@ python apex_oracle_constrained_diverse_optimization.py \
     --track_with_wandb True \
     --constraint_function_ids [similarity] \
     --constraint_thresholds [0.75] \
-    --constraint_types [0] \
+    --constraint_types [GHLLIHLIGKATLAL] \
     --wandb_entity YOUR_WANDB_ENTITY \
     --num_initialization_points 10000 \
     --dim 256 \
