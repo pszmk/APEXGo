@@ -62,14 +62,6 @@ class ApexConstrainedDiverseObjective(LatentSpaceObjective):
             ub=ub,
         )
 
-    def ensure_one_C(self, seq):
-        """Ensure only one 'C' is in the sequence."""
-        while seq.count('C') > 1:
-            index = random.choice([i for i, letter in enumerate(seq) if letter == 'C'])
-            replacement = random.choice([aa for aa in ALL_AMINO_ACIDS if aa != 'C'])
-            seq = seq[:index] + replacement + seq[index+1:]
-        return seq
-
     def vae_decode(self, z):
         '''Input
                 z: a tensor latent space points
@@ -93,8 +85,6 @@ class ApexConstrainedDiverseObjective(LatentSpaceObjective):
         for seq in decoded_seqs:
             seq = seq.replace("X", "A")
             seq = seq.replace("-", "")
-            # Apex optimization requires only one C at most
-            seq = self.ensure_one_C(seq)
             if len(seq) == 0:
                 seq = "AAA" # catch empty string case too... 
             temp.append(seq)
